@@ -5,12 +5,11 @@
 <robot
   name="DH116-V2.0-R">
   <!--
-    Authoritative coupling description for this hand comes from the DH116 README formulas
-    (the master/slave relations are the same as DH116-R000-A1).
+    Authoritative coupling description for this hand.
 
     Independent DOFs: finger11, finger12, finger21, finger31, finger41, finger51
     Passive follower joints:
-      finger13 follows finger12: y = -0.0008x2 + 0.929x - 0.8639   (DH116S-R000-A1)
+      finger13 follows finger12: y = -0.0008x2 + 0.929x - 0.8639
       finger22 follows finger21: y = 0.0035x2 + 0.9206x + 0.6344
       finger32 follows finger31: y = 0.0035x2 + 0.9206x + 0.6344
       finger42 follows finger41: y = 0.0035x2 + 0.9206x + 0.6344
@@ -21,9 +20,8 @@
     The mimic tags below preserve the original DH116-V2.0 geometry, inertial values, joint
     origins, axes, and limits. They encode only the first-order coefficient and the
     constant term from the README formulas. Offsets are converted from degrees to radians.
-    Thumb joint ranges and the finger13 mimic follow DH116S-R000-A1
-    (finger11 [0, 1.588], finger12 [0, 1.030], finger13 [0, 1.13]);
-    the four remaining fingers keep the V2.0 master range [0, 1.57] and the A1 couplings.
+    Thumb joint ranges and the finger13 mimic: finger11 [0, 1.588], finger12 [0, 1.030], finger13 [0, 1.13];
+    the four remaining fingers keep the master range [0, 1.57].
   -->
   <link
     name="base_link">

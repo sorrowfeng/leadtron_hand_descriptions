@@ -7,9 +7,10 @@
     6 active joints : finger11, finger12, finger21, finger31, finger41, finger51
     5 passive joints: finger13<-finger12, finger22<-finger21,
                       finger32<-finger31, finger42<-finger41, finger52<-finger51
-  Thumb (finger13<-finger12) formula from DH116S-R000-A1:
-    y = -0.0008x2 + 0.929x - 0.8639 (deg)  ->  polycoef -0.015082 0.929 -0.045837 0 0
-  Four fingers keep the DH116-R000-A1 README quadratic formulas.
+  Thumb (finger13<-finger12): y = -0.0008x2 + 0.929x - 0.8639 (deg)
+    -> polycoef -0.015082 0.929 -0.045837 0 0
+  Four fingers: y = 0.0035x2 + 0.9206x + 0.6344 (deg)
+    -> polycoef 0.011072 0.9206 0.200535 0 0
 -->
 
 <mujoco model="DH116-V2.0-R">
