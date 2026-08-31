@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  MuJoCo MJCF model for DH116-V2.0-L Dexterous Hand (Left)
+  ============================================================
+  Converted from the DH116-V2.0-L URDF package (mirror image of DH116-V2.0-R).
+
+  Master/slave coupling:
+    6 active joints : finger11, finger12, finger21, finger31, finger41, finger51
+    5 passive joints: finger13<-finger12, finger22<-finger21,
+                      finger32<-finger31, finger42<-finger41, finger52<-finger51
+  Thumb (finger13<-finger12): y = -0.0008x2 + 0.929x - 0.8639 (deg)
+    -> polycoef -0.015082 0.929 -0.045837 0 0
+  Four fingers: y = 0.0035x2 + 0.9206x + 0.6344 (deg)
+    -> polycoef 0.011072 0.9206 0.200535 0 0
+-->
+
+<mujoco model="DH116-V2.0-L">
+
+  <compiler angle="radian" meshdir="../meshes" eulerseq="XYZ" autolimits="true"/>
+  <option gravity="0 0 -9.81" timestep="0.002" iterations="100"/>
+
+  <default>
+    <joint type="hinge" damping="2.0" armature="0.01" frictionloss="0"/>
+    <geom condim="4" friction="1.0 0.005 0.001" contype="0" conaffinity="0"/>
+    <equality solref="0.004 1" solimp="0.9 0.99 0.001 0.5 2"/>
+  </default>
+
+  <asset>
+    <mesh name="base_link" file="base_link.STL"/>
+    <mesh name="finger11_link" file="finger11_link.STL"/>
+    <mesh name="finger12_link" file="finger12_link.STL"/>
+    <mesh name="finger13_link" file="finger13_link.STL"/>
+    <mesh name="finger14_link" file="finger14_link.STL"/>
+    <mesh name="finger21_link" file="finger21_link.STL"/>
+    <mesh name="finger22_link" file="finger22_link.STL"/>
+    <mesh name="finger23_link" file="finger23_link.STL"/>
+    <mesh name="finger31_link" file="finger31_link.STL"/>
+    <mesh name="finger32_link" file="finger32_link.STL"/>
+    <mesh name="finger33_link" file="finger33_link.STL"/>
+    <mesh name="finger41_link" file="finger41_link.STL"/>
+    <mesh name="finger42_link" file="finger42_link.STL"/>
+    <mesh name="finger43_link" file="finger43_link.STL"/>
+    <mesh name="finger51_link" file="finger51_link.STL"/>
+    <mesh name="finger52_link" file="finger52_link.STL"/>
+    <mesh name="finger53_link" file="finger53_link.STL"/>
+  </asset>
+
+  <worldbody>
+    <body name="base_link" pos="0 0 0" euler="0 0 0">
+      <geom name="base_link" type="mesh" mesh="base_link" rgba="1 1 1 1"/>
+      <inertial pos="-0.000885481619364054 0.00705098880179319 0.0606721203964469"
+                mass="0.0971706835526829"
+                fullinertia="4.18572172597517E-05 6.03820095021561E-05 3.37219092686759E-05 1.06780874776739E-07 2.73865512863031E-07 -2.69317202890817E-06"/>
+      <body name="finger11_link" pos="-0.0190554595858907 -0.00951815946242675 0.0501186330983376" euler="0 -0.000144371107103814 -3.11702330349519E-05">
+        <joint name="finger11" axis="0 0.0399505434049681 0.999201658366141" range="0 1.588"/>
+        <geom name="finger11_link" type="mesh" mesh="finger11_link" rgba="1 1 1 1"/>
+        <inertial pos="-0.00653386755197768 -0.00548384199338138 0.00117858092336609"
+                  mass="0.00272982266009613"
+                  fullinertia="3.56456779732672E-07 3.31303946382714E-07 1.07514886339949E-07 9.74826584195562E-09 2.40027996734057E-08 1.88505197499325E-08"/>
+        <body name="finger12_link" pos="-0.011745 -0.009362 0.007094" euler="-1.9112 0.22722 -1.0484">
+          <joint name="finger12" axis="-1 0 0" range="0 1.030"/>
+          <geom name="finger12_link" type="mesh" mesh="finger12_link" rgba="1 1 1 1"/>
+          <inertial pos="-2.50445008601052E-06 0.00326043427727912 -0.0210978530281273"
+                    mass="0.00806587022249504"
+                    fullinertia="1.66761308514704E-06 1.90227231784403E-06 8.03104896250819E-07 1.91278122912085E-11 -7.2001817225599E-13 1.39288234891514E-07"/>
+          <body name="finger13_link" pos="0 0.0029699 -0.04019" euler="0.073761 0 0">
+            <joint name="finger13" axis="-1 0 0" range="0 1.13"/>
+            <geom name="finger13_link" type="mesh" mesh="finger13_link" rgba="1 1 1 1" contype="1" conaffinity="1"/>
+            <inertial pos="-5.27705972669379E-08 0.000822246602183413 -0.0135889729575763"
+                      mass="0.0096590777422027"
+                      fullinertia="1.01712246064531E-06 1.10987469085735E-06 4.79277685544511E-07 -2.83350679114385E-11 -9.55550413869894E-11 -7.41056100177713E-08"/>
+            <body name="finger14_link" pos="0 0 0" euler="0 0 0">
+              <geom name="finger14_link" type="mesh" mesh="finger14_link" rgba="0.2 0.2 0.2 1" contype="1" conaffinity="1"/>
+              <inertial pos="2.51260878492143E-08 -0.00635136339631467 -0.0232679647126368"
+                        mass="0.00418611060314793"
+                        fullinertia="1.66191186513416E-07 2.16281055226658E-07 1.32595666036077E-07 1.7874488296005E-12 -2.48955866349137E-13 -3.83376732965375E-09"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="finger21_link" pos="-0.031931 0.011464 0.11666" euler="0.11781 -0.052257 0">
+        <joint name="finger21" axis="1 -3.722E-05 0" range="0 1.57"/>
+        <geom name="finger21_link" type="mesh" mesh="finger21_link" rgba="1 1 1 1"/>
+        <inertial pos="-2.57098134513745E-06 0.00199086700928896 0.0176937549852519"
+                  mass="0.00237929482644462"
+                  fullinertia="3.06109958616711E-07 3.35135689757844E-07 1.35389834841149E-07 -2.85638492604804E-11 -3.30124291760826E-11 9.39797334862059E-09"/>
+        <body name="finger22_link" pos="0 0 0.0349999999999978" euler="0 0 0">
+          <joint name="finger22" axis="0.999999999307322 -3.72203651390728E-05 0" range="0.011072 1.950714"/>
+          <geom name="finger22_link" type="mesh" mesh="finger22_link" rgba="1 1 1 1" contype="1" conaffinity="1"/>
+          <inertial pos="5.98855910706464E-06 0.000193909397147085 0.0163547597427888"
+                    mass="0.00290192826706633"
+                    fullinertia="5.91807586022749E-07 5.82285290166925E-07 8.59558516713996E-08 6.48948615801444E-11 -1.14870275804724E-10 1.02739717711441E-07"/>
+          <body name="finger23_link" pos="0 0 0" euler="0 0 0">
+            <geom name="finger23_link" type="mesh" mesh="finger23_link" rgba="0.2 0.2 0.2 1" contype="1" conaffinity="1"/>
+            <inertial pos="-1.42941675991548E-06 -0.00692152405481031 0.0257115583607018"
+                      mass="0.00365404362014417"
+                      fullinertia="4.00937326623436E-07 3.87900455632539E-07 1.02633277297891E-07 1.05778692361169E-11 1.4170461291313E-11 1.07487183375115E-07"/>
+          </body>
+        </body>
+      </body>
+      <body name="finger31_link" pos="-0.010487 0.01339 0.11949" euler="0.12951 0 0">
+        <joint name="finger31" axis="1 -3.7272E-05 0" range="0 1.57"/>
+        <geom name="finger31_link" type="mesh" mesh="finger31_link" rgba="1 1 1 1"/>
+        <inertial pos="-2.4094955604903E-06 0.00199104742653187 0.0176942081594249"
+                  mass="0.00237934600271944"
+                  fullinertia="3.06107156097123E-07 3.35131726354276E-07 1.3539055176391E-07 -2.96467531601573E-11 -2.69080470307623E-11 9.39589685033396E-09"/>
+        <body name="finger32_link" pos="0 0 0.0349999999999978" euler="0 0 0">
+          <joint name="finger32" axis="0.999999999305401 -3.72719518638776E-05 0" range="0.011072 1.950714"/>
+          <geom name="finger32_link" type="mesh" mesh="finger32_link" rgba="1 1 1 1" contype="1" conaffinity="1"/>
+          <inertial pos="0.00122971207052464 -0.0183075838469592 -0.0681314495231521"
+                    mass="0.156971898067021"
+                    fullinertia="0.000514892508566982 0.000592311796602313 0.000237864729732402 -7.10974222274753E-05 -2.4984963553027E-05 -7.9247344651906E-05"/>
+          <body name="finger33_link" pos="0 0 0" euler="0 0 0">
+            <geom name="finger33_link" type="mesh" mesh="finger33_link" rgba="0.2 0.2 0.2 1" contype="1" conaffinity="1"/>
+            <inertial pos="-1.45098871333349E-06 -0.00770572981086169 0.0327505945231363"
+                      mass="0.00365402550398939"
+                      fullinertia="4.00938319116596E-07 3.87914273522934E-07 1.02620341915702E-07 1.06793245807712E-11 1.40618034658999E-11 1.07470490439345E-07"/>
+          </body>
+        </body>
+      </body>
+      <body name="finger41_link" pos="0.010961 0.014964 0.11844" euler="0.11788 0.052279 0">
+        <joint name="finger41" axis="1 -0.00065071 0" range="0 1.57"/>
+        <geom name="finger41_link" type="mesh" mesh="finger41_link" rgba="1 1 1 1"/>
+        <inertial pos="-9.43307808434768E-07 0.00199104767345828 0.0176942871230779"
+                  mass="0.00237923407514452"
+                  fullinertia="3.06095291878271E-07 3.35116191806524E-07 1.35385652349531E-07 -1.32850354351898E-11 -1.30521439805876E-11 9.39959496067708E-09"/>
+        <body name="finger42_link" pos="0 0 0.0349999999999978" euler="0 0 0">
+          <joint name="finger42" axis="0.999999788287446 -0.000650711197996891 0" range="0.011072 1.950714"/>
+          <geom name="finger42_link" type="mesh" mesh="finger42_link" rgba="1 1 1 1" contype="1" conaffinity="1"/>
+          <inertial pos="6.19560338664671E-06 0.000193797345243336 0.0163550010224083"
+                    mass="0.00290199036160498"
+                    fullinertia="5.91825094838781E-07 5.82300690138188E-07 8.59585888643308E-08 5.78046547206412E-11 -5.06018264885727E-11 1.02745433687664E-07"/>
+          <body name="finger43_link" pos="0 0 0" euler="0 0 0">
+            <geom name="finger43_link" type="mesh" mesh="finger43_link" rgba="0.2 0.2 0.2 1" contype="1" conaffinity="1"/>
+            <inertial pos="-5.66903827291243E-06 -0.00692151592052633 0.0257115211691982"
+                      mass="0.00365405764803405"
+                      fullinertia="4.00938713057169E-07 3.87902083804742E-07 1.02633787481794E-07 2.65309734950853E-12 7.99978979401171E-11 1.07487399571398E-07"/>
+          </body>
+        </body>
+      </body>
+      <body name="finger51_link" pos="0.032132 0.012794 0.11444" euler="0.11712 0.078529 0">
+        <joint name="finger51" axis="1 -9.2575E-05 0" range="0 1.57"/>
+        <geom name="finger51_link" type="mesh" mesh="finger51_link" rgba="1 1 1 1"/>
+        <inertial pos="-2.00464584509952E-06 0.00199106678375599 0.0176943268505579"
+                  mass="0.00237919133404302"
+                  fullinertia="3.0609409666778E-07 3.35114652956828E-07 1.35384202521341E-07 -2.97958665925172E-11 -1.52782075885928E-11 9.40108443105697E-09"/>
+        <body name="finger52_link" pos="0 0 0.035" euler="0 0 0">
+          <joint name="finger52" axis="1 -9.2575E-05 0" range="0.011072 1.950714"/>
+          <geom name="finger52_link" type="mesh" mesh="finger52_link" rgba="1 1 1 1" contype="1" conaffinity="1"/>
+          <inertial pos="-2.09626842906374E-06 0.00110185152517959 0.0123390063337705"
+                    mass="0.00638467055783515"
+                    fullinertia="8.49154956800084E-07 8.38633399882479E-07 1.69709918318056E-07 -1.21358388030481E-10 4.70165567844941E-10 1.47999555004253E-07"/>
+          <body name="finger53_link" pos="0 0 0" euler="0 0 0">
+            <geom name="finger53_link" type="mesh" mesh="finger53_link" rgba="0.2 0.2 0.2 1" contype="1" conaffinity="1"/>
+            <inertial pos="-5.76041574135155E-07 -0.00593758835428695 0.021123654983382"
+                      mass="0.00249664908867007"
+                      fullinertia="1.41888632260774E-07 1.42159839090132E-07 6.0465883912893E-08 5.21853821747191E-13 3.81608200290867E-12 4.09235711922346E-08"/>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <equality>
+    <joint name="eq_thumb" joint1="finger13" joint2="finger12"
+           polycoef="-0.015082 0.929 -0.045837 0 0"/>
+    <joint name="eq_index" joint1="finger22" joint2="finger21"
+           polycoef="0.011072 0.9206 0.200535 0 0"/>
+    <joint name="eq_middle" joint1="finger32" joint2="finger31"
+           polycoef="0.011072 0.9206 0.200535 0 0"/>
+    <joint name="eq_ring" joint1="finger42" joint2="finger41"
+           polycoef="0.011072 0.9206 0.200535 0 0"/>
+    <joint name="eq_pinky" joint1="finger52" joint2="finger51"
+           polycoef="0.011072 0.9206 0.200535 0 0"/>
+  </equality>
+
+  <actuator>
+    <position name="act_finger11" joint="finger11" kp="50" kv="2.0" ctrlrange="0 1.588"/>
+    <position name="act_finger12" joint="finger12" kp="50" kv="2.0" ctrlrange="0 1.030"/>
+    <position name="act_finger21" joint="finger21" kp="50" kv="2.0" ctrlrange="0 1.57"/>
+    <position name="act_finger31" joint="finger31" kp="50" kv="2.0" ctrlrange="0 1.57"/>
+    <position name="act_finger41" joint="finger41" kp="50" kv="2.0" ctrlrange="0 1.57"/>
+    <position name="act_finger51" joint="finger51" kp="50" kv="2.0" ctrlrange="0 1.57"/>
+  </actuator>
+
+</mujoco>

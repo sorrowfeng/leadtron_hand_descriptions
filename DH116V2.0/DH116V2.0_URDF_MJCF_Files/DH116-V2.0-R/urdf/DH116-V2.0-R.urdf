@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="DH116-V2.0-R">
+  <!--
+    Authoritative coupling description for this hand comes from the DH116 README formulas
+    (the master/slave relations are the same as DH116-R000-A1).
+
+    Independent DOFs: finger11, finger12, finger21, finger31, finger41, finger51
+    Passive follower joints:
+      finger13 follows finger12: y = -0.0008x2 + 0.929x - 0.8639   (DH116S-R000-A1)
+      finger22 follows finger21: y = 0.0035x2 + 0.9206x + 0.6344
+      finger32 follows finger31: y = 0.0035x2 + 0.9206x + 0.6344
+      finger42 follows finger41: y = 0.0035x2 + 0.9206x + 0.6344
+      finger52 follows finger51: y = 0.0035x2 + 0.9206x + 0.6344
+
+    Note: URDF mimic supports only linear coupling:
+      q_follower = multiplier * q_driver + offset
+    The mimic tags below preserve the original DH116-V2.0 geometry, inertial values, joint
+    origins, axes, and limits. They encode only the first-order coefficient and the
+    constant term from the README formulas. Offsets are converted from degrees to radians.
+    Thumb joint ranges and the finger13 mimic follow DH116S-R000-A1
+    (finger11 [0, 1.588], finger12 [0, 1.030], finger13 [0, 1.13]);
+    the four remaining fingers keep the V2.0 master range [0, 1.57] and the A1 couplings.
+  -->
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.000384594983177736 0.00687559548625967 0.062702407337"
+        rpy="0 0 0" />
+      <mass
+        value="0.102648464158255" />
+      <inertia
+        ixx="5.07013622660663E-05"
+        ixy="-1.92736989036255E-07"
+        ixz="-2.66150168141194E-06"
+        iyy="7.8231102647436E-05"
+        iyz="-3.4774755184656E-06"
+        izz="4.40244648491789E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+<link
+    name="finger11_link">
+    <inertial>
+      <origin
+        xyz="0.00550004021619312 -0.00655617552095167 -0.000191316160511726"
+        rpy="0 0 0" />
+      <mass
+        value="0.00272983826140588" />
+      <inertia
+        ixx="3.52738299433481E-07"
+        ixy="-1.27969218693403E-08"
+        ixz="-1.93093086555405E-08"
+        iyy="3.3316263602022E-07"
+        iyz="3.14597466376983E-08"
+        izz="1.09378484150176E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger11_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger11_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger11"
+    type="revolute">
+    <origin
+      xyz="0.019056 -0.0094722 0.051267"
+      rpy="-0.039961 0.00014312 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="finger11_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="1.588"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="finger12_link">
+    <inertial>
+      <origin
+        xyz="-1.7086379549211E-06 0.00250534485583995 0.0212009554490771"
+        rpy="0 0 0" />
+      <mass
+        value="0.0080643193016202" />
+      <inertia
+        ixx="1.66752026443682E-06"
+        ixy="-1.44429368976153E-11"
+        ixz="1.52526910064258E-11"
+        iyy="1.89524549791852E-06"
+        iyz="-1.64100446207573E-07"
+        izz="8.09911129338027E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger12_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger12_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger12"
+    type="revolute">
+    <origin
+      xyz="0.0099373 -0.011493 0.0055643"
+      rpy="0.99289 -0.2618 0.8727" />
+    <parent
+      link="finger11_link" />
+    <child
+      link="finger12_link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="1.030"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="finger13_link">
+    <inertial>
+      <origin
+        xyz="2.48856358183586E-07 0.0135456541625746 -0.00138746988427199"
+        rpy="0 0 0" />
+      <mass
+        value="0.00965999265031102" />
+      <inertia
+        ixx="1.0176702894972E-06"
+        ixy="4.33828268436077E-11"
+        ixz="-3.00147800195969E-11"
+        iyy="5.19513068818324E-07"
+        iyz="1.71109844996575E-07"
+        izz="1.07018007038633E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger13_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger13_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger13"
+    type="revolute">
+    <origin
+      xyz="0 0.0078952 0.039519"
+      rpy="1.3736 0 0" />
+    <parent
+      link="finger12_link" />
+    <child
+      link="finger13_link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="1.13"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="finger12"
+      multiplier="0.88178789"
+      offset="-0.00697725445" />
+  </joint>
+  <link
+    name="finger14_link">
+    <inertial>
+      <origin
+        xyz="2.85820057448205E-08 0.0219344577214139 -0.0100307358889305"
+        rpy="0 0 0" />
+      <mass
+        value="0.00418622215678032" />
+      <inertia
+        ixx="1.66201559678115E-07"
+        ixy="-7.07167163540706E-13"
+        ixz="2.41355839459374E-12"
+        iyy="1.36015913548715E-07"
+        iyz="1.69926693919176E-08"
+        izz="2.12882208881997E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger14_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger14_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger14"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="finger13_link" />
+    <child
+      link="finger14_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="finger21_link">
+    <inertial>
+      <origin
+        xyz="-2.31939396755539E-06 0.00199104897025477 0.0176942942642336"
+        rpy="0 0 0" />
+      <mass
+        value="0.00237923288367508" />
+      <inertia
+        ixx="3.06095021905036E-07"
+        ixy="-3.3287161858079E-11"
+        ixz="-1.97254315379629E-11"
+        iyy="3.35115828643221E-07"
+        iyz="9.39968929782069E-09"
+        izz="1.35385555921883E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger21_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger21_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger21"
+    type="revolute">
+    <origin
+      xyz="0.031931 0.011464 0.11666"
+      rpy="0.11781 0.052257 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="finger21_link" />
+    <axis
+      xyz="1 3.722E-05 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="finger22_link">
+    <inertial>
+      <origin
+        xyz="6.06244266413911E-06 0.000193802596547828 0.0163549948899151"
+        rpy="0 0 0" />
+      <mass
+        value="0.00290199009018884" />
+      <inertia
+        ixx="5.91825321078887E-07"
+        ixy="6.43642800788787E-11"
+        ixz="-1.21342452967443E-10"
+        iyy="5.82301087406945E-07"
+        iyz="1.02745391373333E-07"
+        izz="8.59585829435756E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger22_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger22_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger22"
+    type="revolute">
+    <origin
+      xyz="0 0 0.035"
+      rpy="0 0 0" />
+    <parent
+      link="finger21_link" />
+    <child
+      link="finger22_link" />
+    <axis
+      xyz="1 3.722E-05 0" />
+    <limit
+      lower="0.011072"
+      upper="1.950714"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="finger21"
+      multiplier="0.9206"
+      offset="0.011072" />
+  </joint>
+  <link
+    name="finger23_link">
+    <inertial>
+      <origin
+        xyz="-9.0794472871851E-07 -0.00692151777823585 0.0257115223667692"
+        rpy="0 0 0" />
+      <mass
+        value="0.00365405869163778" />
+      <inertia
+        ixx="4.00938727580874E-07"
+        ixy="1.16230601917764E-11"
+        ixz="6.0556640420077E-12"
+        iyy="3.87902123070854E-07"
+        iyz="1.07487424596211E-07"
+        izz="1.02633809135578E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger23_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger23_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger23"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="finger22_link" />
+    <child
+      link="finger23_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="finger31_link">
+    <inertial>
+      <origin
+        xyz="-2.57169984000348E-06 0.00199103674986598 0.0176941916901443"
+        rpy="0 0 0" />
+      <mass
+        value="0.00237934251812534" />
+      <inertia
+        ixx="3.06106546383173E-07"
+        ixy="-3.16467877316456E-11"
+        ixz="-2.72230393792002E-11"
+        iyy="3.35131226054422E-07"
+        iyz="9.39619278433277E-09"
+        izz="1.35390338391844E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger31_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger31_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger31"
+    type="revolute">
+    <origin
+      xyz="0.010487 0.01339 0.11949"
+      rpy="0.12951 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="finger31_link" />
+    <axis
+      xyz="1 3.7272E-05 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="finger32_link">
+    <inertial>
+      <origin
+        xyz="-0.00447874853704674 -0.0181266554246272 -0.0649010644820765"
+        rpy="0 0 0" />
+      <mass
+        value="0.162452787879437" />
+      <inertia
+        ixx="0.000523914863226542"
+        ixy="5.04551657695002E-05"
+        ixz="3.3730103323987E-07"
+        iyy="0.000565562752745381"
+        iyz="-6.04960703221266E-05"
+        izz="0.000203360828654844" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger32_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger32_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger32"
+    type="revolute">
+    <origin
+      xyz="0 0 0.035"
+      rpy="0 0 0" />
+    <parent
+      link="finger31_link" />
+    <child
+      link="finger32_link" />
+    <axis
+      xyz="1 3.7272E-05 0" />
+    <limit
+      lower="0.011072"
+      upper="1.950714"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="finger31"
+      multiplier="0.9206"
+      offset="0.011072" />
+  </joint>
+  <link
+    name="finger33_link">
+    <inertial>
+      <origin
+        xyz="-8.76538481265135E-07 -0.00770573024909497 0.0327505947833935"
+        rpy="0 0 0" />
+      <mass
+        value="0.00365402554963479" />
+      <inertia
+        ixx="4.00938322832869E-07"
+        ixy="1.16431212554848E-11"
+        ixz="6.05210173267817E-12"
+        iyy="3.87914285271573E-07"
+        iyz="1.07470495398011E-07"
+        izz="1.02620335404759E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger33_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger33_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger33"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="finger32_link" />
+    <child
+      link="finger33_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="finger41_link">
+    <inertial>
+      <origin
+        xyz="-3.93506902255682E-06 0.00199086432430838 0.0176937745164442"
+        rpy="0 0 0" />
+      <mass
+        value="0.00237929764942511" />
+      <inertia
+        ixx="3.06110880192678E-07"
+        ixy="-4.85175270844976E-11"
+        ixz="-3.97506754624893E-11"
+        iyy="3.35136586098437E-07"
+        iyz="9.39798742529069E-09"
+        izz="1.35389901337327E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger41_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger41_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger41"
+    type="revolute">
+    <origin
+      xyz="-0.010961 0.014964 0.11844"
+      rpy="0.11788 -0.052279 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="finger41_link" />
+    <axis
+      xyz="1 0.00065071 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="finger42_link">
+    <inertial>
+      <origin
+        xyz="5.87801710019535E-06 0.000193901344861681 0.0163548313036495"
+        rpy="0 0 0" />
+      <mass
+        value="0.00290194424236431" />
+      <inertia
+        ixx="5.91811523282041E-07"
+        ixy="7.15927679110303E-11"
+        ixz="-1.86523899856843E-10"
+        iyy="5.822895021518E-07"
+        iyz="1.02740291428038E-07"
+        izz="8.59561948447927E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger42_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger42_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger42"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0349999999999978"
+      rpy="0 0 0" />
+    <parent
+      link="finger41_link" />
+    <child
+      link="finger42_link" />
+    <axis
+      xyz="0.999999788287446 0.000650711198006335 0" />
+    <limit
+      lower="0.011072"
+      upper="1.950714"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="finger41"
+      multiplier="0.9206"
+      offset="0.011072" />
+  </joint>
+  <link
+    name="finger43_link">
+    <inertial>
+      <origin
+        xyz="3.33215413406487E-06 -0.00692152287113859 0.0257115586388355"
+        rpy="0 0 0" />
+      <mass
+        value="0.00365404391248439" />
+      <inertia
+        ixx="4.00937320115789E-07"
+        ixy="1.95526622619856E-11"
+        ixz="-5.9777583055972E-11"
+        iyy="3.87900482567599E-07"
+        iyz="1.07487161655879E-07"
+        izz="1.0263328877093E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger43_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger43_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger43"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="finger42_link" />
+    <child
+      link="finger43_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="finger51_link">
+    <inertial>
+      <origin
+        xyz="-2.6499053691724E-06 0.00199087180780914 0.0176937652697311"
+        rpy="0 0 0" />
+      <mass
+        value="0.00237929747953735" />
+      <inertia
+        ixx="3.06111890037292E-07"
+        ixy="-2.95660249845451E-11"
+        ixz="-3.44193932707122E-11"
+        iyy="3.35138052209343E-07"
+        iyz="9.39809802777093E-09"
+        izz="1.35389829832343E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger51_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger51_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger51"
+    type="revolute">
+    <origin
+      xyz="-0.032132 0.012794 0.11444"
+      rpy="0.11711 -0.07854 9.2225E-05" />
+    <parent
+      link="base_link" />
+    <child
+      link="finger51_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="finger52_link">
+    <inertial>
+      <origin
+        xyz="-2.3843774642901E-06 0.00110184316633494 0.0123390880478485"
+        rpy="0 0 0" />
+      <mass
+        value="0.00638461833528179" />
+      <inertia
+        ixx="8.49153457410536E-07"
+        ixy="-1.18629058113402E-10"
+        ixz="4.40902629460727E-10"
+        iyy="8.38630067063461E-07"
+        iyz="1.48000702141386E-07"
+        izz="1.69709239768944E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger52_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger52_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger52"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0349999999999978"
+      rpy="0 0 -9.257460952499E-05" />
+    <parent
+      link="finger51_link" />
+    <child
+      link="finger52_link" />
+    <axis
+      xyz="0.999999995714971 9.25746093928242E-05 0" />
+    <limit
+      lower="0.011072"
+      upper="1.950714"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="finger51"
+      multiplier="0.9206"
+      offset="0.011072" />
+  </joint>
+  <link
+    name="finger53_link">
+    <inertial>
+      <origin
+        xyz="5.22583427593759E-07 -0.00593758897081557 0.0211236554240134"
+        rpy="0 0 0" />
+      <mass
+        value="0.00249664955510129" />
+      <inertia
+        ixx="1.41888685022144E-07"
+        ixy="4.783847373373E-13"
+        ixz="-3.78082782906442E-12"
+        iyy="1.42159874035205E-07"
+        iyz="4.09235660156428E-08"
+        izz="6.04658821763626E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger53_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://DH116-V2.0-R/meshes/finger53_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger53"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="finger52_link" />
+    <child
+      link="finger53_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  </robot>

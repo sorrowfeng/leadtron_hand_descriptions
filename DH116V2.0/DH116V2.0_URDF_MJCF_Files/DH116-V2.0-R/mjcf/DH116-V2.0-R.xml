@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  MuJoCo MJCF model for DH116-V2.0-R Dexterous Hand (Right)
+  ============================================================
+  Converted from the DH116-V2.0-R URDF package.
+  Master/slave coupling:
+    6 active joints : finger11, finger12, finger21, finger31, finger41, finger51
+    5 passive joints: finger13<-finger12, finger22<-finger21,
+                      finger32<-finger31, finger42<-finger41, finger52<-finger51
+  Thumb (finger13<-finger12) formula from DH116S-R000-A1:
+    y = -0.0008x2 + 0.929x - 0.8639 (deg)  ->  polycoef -0.015082 0.929 -0.045837 0 0
+  Four fingers keep the DH116-R000-A1 README quadratic formulas.
+-->
+
+<mujoco model="DH116-V2.0-R">
+
+  <compiler angle="radian" meshdir="../meshes" eulerseq="XYZ" autolimits="true"/>
+  <option gravity="0 0 -9.81" timestep="0.002" iterations="100"/>
+
+  <default>
+    <joint type="hinge" damping="2.0" armature="0.01" frictionloss="0"/>
+    <geom condim="4" friction="1.0 0.005 0.001" contype="0" conaffinity="0"/>
+    <equality solref="0.004 1" solimp="0.9 0.99 0.001 0.5 2"/>
+  </default>
+
+  <asset>
+    <mesh name="base_link" file="base_link.STL"/>
+    <mesh name="finger11_link" file="finger11_link.STL"/>
+    <mesh name="finger12_link" file="finger12_link.STL"/>
+    <mesh name="finger13_link" file="finger13_link.STL"/>
+    <mesh name="finger14_link" file="finger14_link.STL"/>
+    <mesh name="finger21_link" file="finger21_link.STL"/>
+    <mesh name="finger22_link" file="finger22_link.STL"/>
+    <mesh name="finger23_link" file="finger23_link.STL"/>
+    <mesh name="finger31_link" file="finger31_link.STL"/>
+    <mesh name="finger32_link" file="finger32_link.STL"/>
+    <mesh name="finger33_link" file="finger33_link.STL"/>
+    <mesh name="finger41_link" file="finger41_link.STL"/>
+    <mesh name="finger42_link" file="finger42_link.STL"/>
+    <mesh name="finger43_link" file="finger43_link.STL"/>
+    <mesh name="finger51_link" file="finger51_link.STL"/>
+    <mesh name="finger52_link" file="finger52_link.STL"/>
+    <mesh name="finger53_link" file="finger53_link.STL"/>
+  </asset>
+
+  <worldbody>
+
+    <body name="base_link" pos="0 0 0">
+      <geom name="base_link" type="mesh" mesh="base_link" rgba="1 1 1 1"/>
+      <inertial pos="0.000384594983177736 0.00687559548625967 0.062702407337"
+                mass="0.102648464158255"
+                fullinertia="5.07013622660663E-05 7.8231102647436E-05 4.40244648491789E-05 -1.92736989036255E-07 -2.66150168141194E-06 -3.4774755184656E-06"/>
+
+      <!-- ===== 手指 1：大拇指 (Thumb) ===== -->
+      <body name="finger11_link"
+            pos="0.019056 -0.0094722 0.051267"
+            euler="-0.039961 0.00014312 0">
+        <joint name="finger11" axis="0 0 -1" range="0 1.588"/>
+        <geom name="finger11_link" type="mesh" mesh="finger11_link" rgba="1 1 1 1"/>
+        <inertial pos="0.00550004021619312 -0.00655617552095167 -0.000191316160511726"
+                  mass="0.00272983826140588"
+                  fullinertia="3.52738299433481E-07 3.3316263602022E-07 1.09378484150176E-07 -1.27969218693403E-08 -1.93093086555405E-08 3.14597466376983E-08"/>
+        <body name="finger12_link"
+              pos="0.0099373 -0.011493 0.0055643"
+              euler="0.99289 -0.2618 0.8727">
+          <joint name="finger12" axis="-1 0 0" range="0 1.030"/>
+          <geom name="finger12_link" type="mesh" mesh="finger12_link" rgba="1 1 1 1"/>
+          <inertial pos="-1.7086379549211E-06 0.00250534485583995 0.0212009554490771"
+                    mass="0.0080643193016202"
+                    fullinertia="1.66752026443682E-06 1.89524549791852E-06 8.09911129338027E-07 -1.44429368976153E-11 1.52526910064258E-11 -1.64100446207573E-07"/>
+          <body name="finger13_link"
+                pos="0 0.0078952 0.039519"
+                euler="1.3736 0 0">
+            <joint name="finger13" axis="-1 0 0" range="0 1.13"/>
+            <geom name="finger13_link" type="mesh" mesh="finger13_link" rgba="1 1 1 1" contype="1" conaffinity="1"/>
+            <inertial pos="2.48856358183586E-07 0.0135456541625746 -0.00138746988427199"
+                      mass="0.00965999265031102"
+                      fullinertia="1.0176702894972E-06 5.19513068818324E-07 1.07018007038633E-06 4.33828268436077E-11 -3.00147800195969E-11 1.71109844996575E-07"/>
+            <body name="finger14_link"
+                  pos="0 0 0"
+                  euler="0 0 0">
+              <geom name="finger14_link" type="mesh" mesh="finger14_link" rgba="0.2 0.2 0.2 1" contype="1" conaffinity="1"/>
+              <inertial pos="2.85820057448205E-08 0.0219344577214139 -0.0100307358889305"
+                        mass="0.00418622215678032"
+                        fullinertia="1.66201559678115E-07 1.36015913548715E-07 2.12882208881997E-07 -7.07167163540706E-13 2.41355839459374E-12 1.69926693919176E-08"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <!-- ===== 手指 2：食指 (Index) ===== -->
+      <body name="finger21_link"
+            pos="0.031931 0.011464 0.11666"
+            euler="0.11781 0.052257 0">
+        <joint name="finger21" axis="1 3.722E-05 0" range="0 1.57"/>
+        <geom name="finger21_link" type="mesh" mesh="finger21_link" rgba="1 1 1 1"/>
+        <inertial pos="-2.31939396755539E-06 0.00199104897025477 0.0176942942642336"
+                  mass="0.00237923288367508"
+                  fullinertia="3.06095021905036E-07 3.35115828643221E-07 1.35385555921883E-07 -3.3287161858079E-11 -1.97254315379629E-11 9.39968929782069E-09"/>
+        <body name="finger22_link"
+              pos="0 0 0.035"
+              euler="0 0 0">
+          <joint name="finger22" axis="1 3.722E-05 0" range="0.011072 1.950714"/>
+          <geom name="finger22_link" type="mesh" mesh="finger22_link" rgba="1 1 1 1" contype="1" conaffinity="1"/>
+          <inertial pos="6.06244266413911E-06 0.000193802596547828 0.0163549948899151"
+                    mass="0.00290199009018884"
+                    fullinertia="5.91825321078887E-07 5.82301087406945E-07 8.59585829435756E-08 6.43642800788787E-11 -1.21342452967443E-10 1.02745391373333E-07"/>
+          <body name="finger23_link"
+                pos="0 0 0"
+                euler="0 0 0">
+            <geom name="finger23_link" type="mesh" mesh="finger23_link" rgba="0.2 0.2 0.2 1" contype="1" conaffinity="1"/>
+            <inertial pos="-9.0794472871851E-07 -0.00692151777823585 0.0257115223667692"
+                      mass="0.00365405869163778"
+                      fullinertia="4.00938727580874E-07 3.87902123070854E-07 1.02633809135578E-07 1.16230601917764E-11 6.0556640420077E-12 1.07487424596211E-07"/>
+          </body>
+        </body>
+      </body>
+
+      <!-- ===== 手指 3：中指 (Middle) ===== -->
+      <body name="finger31_link"
+            pos="0.010487 0.01339 0.11949"
+            euler="0.12951 0 0">
+        <joint name="finger31" axis="1 3.7272E-05 0" range="0 1.57"/>
+        <geom name="finger31_link" type="mesh" mesh="finger31_link" rgba="1 1 1 1"/>
+        <inertial pos="-2.57169984000348E-06 0.00199103674986598 0.0176941916901443"
+                  mass="0.00237934251812534"
+                  fullinertia="3.06106546383173E-07 3.35131226054422E-07 1.35390338391844E-07 -3.16467877316456E-11 -2.72230393792002E-11 9.39619278433277E-09"/>
+        <body name="finger32_link"
+              pos="0 0 0.035"
+              euler="0 0 0">
+          <joint name="finger32" axis="1 3.7272E-05 0" range="0.011072 1.950714"/>
+          <geom name="finger32_link" type="mesh" mesh="finger32_link" rgba="1 1 1 1" contype="1" conaffinity="1"/>
+          <inertial pos="-0.00447874853704674 -0.0181266554246272 -0.0649010644820765"
+                    mass="0.162452787879437"
+                    fullinertia="0.000523914863226542 0.000565562752745381 0.000203360828654844 5.04551657695002E-05 3.3730103323987E-07 -6.04960703221266E-05"/>
+          <body name="finger33_link"
+                pos="0 0 0"
+                euler="0 0 0">
+            <geom name="finger33_link" type="mesh" mesh="finger33_link" rgba="0.2 0.2 0.2 1" contype="1" conaffinity="1"/>
+            <inertial pos="-8.76538481265135E-07 -0.00770573024909497 0.0327505947833935"
+                      mass="0.00365402554963479"
+                      fullinertia="4.00938322832869E-07 3.87914285271573E-07 1.02620335404759E-07 1.16431212554848E-11 6.05210173267817E-12 1.07470495398011E-07"/>
+          </body>
+        </body>
+      </body>
+
+      <!-- ===== 手指 4：无名指 (Ring) ===== -->
+      <body name="finger41_link"
+            pos="-0.010961 0.014964 0.11844"
+            euler="0.11788 -0.052279 0">
+        <joint name="finger41" axis="1 0.00065071 0" range="0 1.57"/>
+        <geom name="finger41_link" type="mesh" mesh="finger41_link" rgba="1 1 1 1"/>
+        <inertial pos="-3.93506902255682E-06 0.00199086432430838 0.0176937745164442"
+                  mass="0.00237929764942511"
+                  fullinertia="3.06110880192678E-07 3.35136586098437E-07 1.35389901337327E-07 -4.85175270844976E-11 -3.97506754624893E-11 9.39798742529069E-09"/>
+        <body name="finger42_link"
+              pos="0 0 0.0349999999999978"
+              euler="0 0 0">
+          <joint name="finger42" axis="0.999999788287446 0.000650711198006335 0" range="0.011072 1.950714"/>
+          <geom name="finger42_link" type="mesh" mesh="finger42_link" rgba="1 1 1 1" contype="1" conaffinity="1"/>
+          <inertial pos="5.87801710019535E-06 0.000193901344861681 0.0163548313036495"
+                    mass="0.00290194424236431"
+                    fullinertia="5.91811523282041E-07 5.822895021518E-07 8.59561948447927E-08 7.15927679110303E-11 -1.86523899856843E-10 1.02740291428038E-07"/>
+          <body name="finger43_link"
+                pos="0 0 0"
+                euler="0 0 0">
+            <geom name="finger43_link" type="mesh" mesh="finger43_link" rgba="0.2 0.2 0.2 1" contype="1" conaffinity="1"/>
+            <inertial pos="3.33215413406487E-06 -0.00692152287113859 0.0257115586388355"
+                      mass="0.00365404391248439"
+                      fullinertia="4.00937320115789E-07 3.87900482567599E-07 1.0263328877093E-07 1.95526622619856E-11 -5.9777583055972E-11 1.07487161655879E-07"/>
+          </body>
+        </body>
+      </body>
+
+      <!-- ===== 手指 5：小拇指 (Pinky) ===== -->
+      <body name="finger51_link"
+            pos="-0.032132 0.012794 0.11444"
+            euler="0.11711 -0.07854 9.2225E-05">
+        <joint name="finger51" axis="1 0 0" range="0 1.57"/>
+        <geom name="finger51_link" type="mesh" mesh="finger51_link" rgba="1 1 1 1"/>
+        <inertial pos="-2.6499053691724E-06 0.00199087180780914 0.0176937652697311"
+                  mass="0.00237929747953735"
+                  fullinertia="3.06111890037292E-07 3.35138052209343E-07 1.35389829832343E-07 -2.95660249845451E-11 -3.44193932707122E-11 9.39809802777093E-09"/>
+        <body name="finger52_link"
+              pos="0 0 0.0349999999999978"
+              euler="0 0 -9.257460952499E-05">
+          <joint name="finger52" axis="0.999999995714971 9.25746093928242E-05 0" range="0.011072 1.950714"/>
+          <geom name="finger52_link" type="mesh" mesh="finger52_link" rgba="1 1 1 1" contype="1" conaffinity="1"/>
+          <inertial pos="-2.3843774642901E-06 0.00110184316633494 0.0123390880478485"
+                    mass="0.00638461833528179"
+                    fullinertia="8.49153457410536E-07 8.38630067063461E-07 1.69709239768944E-07 -1.18629058113402E-10 4.40902629460727E-10 1.48000702141386E-07"/>
+          <body name="finger53_link"
+                pos="0 0 0"
+                euler="0 0 0">
+            <geom name="finger53_link" type="mesh" mesh="finger53_link" rgba="0.2 0.2 0.2 1" contype="1" conaffinity="1"/>
+            <inertial pos="5.22583427593759E-07 -0.00593758897081557 0.0211236554240134"
+                      mass="0.00249664955510129"
+                      fullinertia="1.41888685022144E-07 1.42159874035205E-07 6.04658821763626E-08 4.783847373373E-13 -3.78082782906442E-12 4.09235660156428E-08"/>
+          </body>
+        </body>
+      </body>
+
+
+    </body>
+
+  </worldbody>
+
+  <equality>
+    <joint name="eq_thumb" joint1="finger13" joint2="finger12"
+           polycoef="-0.015082 0.929 -0.045837 0 0"/>
+    <joint name="eq_index" joint1="finger22" joint2="finger21"
+           polycoef="0.011072 0.9206 0.200535 0 0"/>
+    <joint name="eq_middle" joint1="finger32" joint2="finger31"
+           polycoef="0.011072 0.9206 0.200535 0 0"/>
+    <joint name="eq_ring" joint1="finger42" joint2="finger41"
+           polycoef="0.011072 0.9206 0.200535 0 0"/>
+    <joint name="eq_pinky" joint1="finger52" joint2="finger51"
+           polycoef="0.011072 0.9206 0.200535 0 0"/>
+  </equality>
+
+  <actuator>
+    <position name="act_finger11" joint="finger11" kp="50" kv="2.0" ctrlrange="0 1.588"/>
+    <position name="act_finger12" joint="finger12" kp="50" kv="2.0" ctrlrange="0 1.030"/>
+    <position name="act_finger21" joint="finger21" kp="50" kv="2.0" ctrlrange="0 1.57"/>
+    <position name="act_finger31" joint="finger31" kp="50" kv="2.0" ctrlrange="0 1.57"/>
+    <position name="act_finger41" joint="finger41" kp="50" kv="2.0" ctrlrange="0 1.57"/>
+    <position name="act_finger51" joint="finger51" kp="50" kv="2.0" ctrlrange="0 1.57"/>
+  </actuator>
+
+</mujoco>
