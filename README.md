@@ -71,6 +71,7 @@ Key directories in this repository:
 - `DH116/`: description files and release assets for the `DH116` hand
 - `DH116S/`: description files and release assets for the `DH116S` hand
 - `DH116V2.0/`: description files and release assets for the `DH116V2.0` hand
+- `tools/`: maintenance scripts for the SolidWorks -> URDF/MJCF workflow
 - `LICENSE`: repository license
 
 Within each model package, you will typically find:
@@ -80,6 +81,14 @@ Within each model package, you will typically find:
 - `meshes/`
 - `launch/`
 - `config/`
+
+After re-exporting a model from SolidWorks, re-apply the hand-maintained mimic
+couplings, joint limits and colours, then regenerate the MJCF:
+
+```bash
+python3 tools/patch_sw2urdf_limits.py -p DH116/DH116_URDF_MJCF_Files/DH116-R000-A1 --tidy
+python3 tools/urdf2mjcf.py             -p DH116/DH116_URDF_MJCF_Files/DH116-R000-A1
+```
 
 ## Releases
 

@@ -8,5 +8,14 @@
 !DH116S/**
 !DH116V2.0/
 !DH116V2.0/**
+!tools/
+!tools/**
 **/release/
-**/release/**
+
+# SolidWorks / macOS junk (the exporter re-creates them on every run)
+**/export.log
+**/.DS_Store
+
+# Python
+__pycache__/
+*.pyc
