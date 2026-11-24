@@ -86,19 +86,19 @@
 
       <!--
         finger11: 主动 — 拇指摆动 (MCP ab/adduction)
-        绕 +Z 轴，范围 0~1.588 rad，独立执行器驱动
+        绕 +Z 轴，范围 0~1.527 rad，独立执行器驱动
       -->
       <body name="finger11_link" pos="0.0193521365394396 0.00780520239676655 0.0343200230340877" euler="0 5.66182786981891E-05 0">
-        <joint name="finger11" axis="0 0 1" range="0 1.588"/>
+        <joint name="finger11" axis="0 0 1" range="0 1.527163"/>
         <geom name="finger11_link" type="mesh" mesh="finger11_link" rgba="0.9 0.9 0.9 1"/>
         <inertial pos="0.00880711190023678 0.00163343220926083 0.00136775413572365" mass="0.00703896093413542" fullinertia="9.90699426372342E-07 9.57269339123916E-07 2.86923099019118E-07 -1.94396154626989E-08 -9.77092169793553E-08 -4.37556082720952E-08"/>
 
         <!--
           finger12: 主动 — 拇指 MCP 屈曲 (MCP flexion)
-          绕 -X 轴，范围 0~1.030 rad，独立执行器驱动
+          绕 -X 轴，范围 0~1.134 rad，独立执行器驱动
         -->
         <body name="finger12_link" pos="0.0149999999999999 0.00241716818236522 0.00671430739572605" euler="0.914542570706424 0.26179938779915 1.5707963267949">
-          <joint name="finger12" axis="-1 0 0" range="0 1.030"/>
+          <joint name="finger12" axis="-1 0 0" range="0 1.134464"/>
           <geom name="finger12_link" type="mesh" mesh="finger12_link" rgba="0.9 0.9 0.9 1"/>
           <inertial pos="0.000626165204877099 -0.00814581305344735 0.020646424515226" mass="0.00572071000157471" fullinertia="1.08317641871166E-06 1.26897009959513E-06 5.51662991743827E-07 1.92569888242211E-09 -1.00701276813813E-08 2.85476025728995E-07"/>
 
@@ -133,7 +133,7 @@
         绕 -X 轴，范围 0~1.257 rad，独立执行器驱动
       -->
       <body name="finger21_link" pos="0.0263221667373393 -0.00532638133131497 0.0839088174238425" euler="0.0157127180588976 0.0976603903613511 0.159786795598776">
-        <joint name="finger21" axis="-1 0 0" range="0 1.257"/>
+        <joint name="finger21" axis="-1 0 0" range="0 1.256637"/>
         <geom name="finger21_link" type="mesh" mesh="finger21_link" rgba="0.9 0.9 0.9 1"/>
         <inertial pos="3.48658519827572E-06 0.000948250837583636 0.0145873180381056" mass="0.00393802264883532" fullinertia="3.15961467581521E-07 3.37002395494748E-07 1.60677749968883E-07 -4.20917811183589E-11 -5.78570860505374E-11 -4.22831681499364E-08"/>
 
@@ -167,7 +167,7 @@
         绕 -X 轴，范围 0~1.257 rad，独立执行器驱动
       -->
       <body name="finger31_link" pos="0.00853056012195752 -0.00653399721710813 0.08818546795159" euler="0.000712944465730327 0.0134076578043506 0.0531259881623533">
-        <joint name="finger31" axis="-1 0 0" range="0 1.257"/>
+        <joint name="finger31" axis="-1 0 0" range="0 1.256637"/>
         <geom name="finger31_link" type="mesh" mesh="finger31_link" rgba="0.9 0.9 0.9 1"/>
         <inertial pos="2.43928457896447E-06 0.00125405351222651 0.0166476625726954" mass="0.00465629805037929" fullinertia="4.64033183836396E-07 4.82279099347931E-07 1.92342304939614E-07 -6.96661919362374E-11 -4.25124779854874E-11 -6.61666793058518E-08"/>
 
@@ -201,7 +201,7 @@
         绕 -X 轴，范围 0~1.257 rad，独立执行器驱动
       -->
       <body name="finger41_link" pos="-0.00888762654492145 -0.00728133879903732 0.087396405615583" euler="0.00302662499820262 -0.0615538222955632 -0.0491619519178472">
-        <joint name="finger41" axis="-1 0 0" range="0 1.257"/>
+        <joint name="finger41" axis="-1 0 0" range="0 1.256637"/>
         <geom name="finger41_link" type="mesh" mesh="finger41_link" rgba="0.9 0.9 0.9 1"/>
         <inertial pos="2.05886925985777E-06 0.00090785719008161 0.0149119186393758" mass="0.00414279060803409" fullinertia="3.62106671626076E-07 3.80908507437567E-07 1.70352561515995E-07 -5.103578461109E-11 -3.5507325901272E-11 -5.38270721397437E-08"/>
 
@@ -232,10 +232,10 @@
 
       <!--
         finger51: 主动 — 小拇指 MCP
-        绕 -X 轴，范围 0~1.291 rad，独立执行器驱动
+        绕 -X 轴，范围 0~1.257 rad，独立执行器驱动
       -->
       <body name="finger51_link" pos="-0.0264481824708094 -0.0055488670962835 0.0829799586736383" euler="-0.153756050317575 -0.150571871776981 -0.147041448694914">
-        <joint name="finger51" axis="-1 0 0" range="0 1.291"/>
+        <joint name="finger51" axis="-1 0 0" range="0 1.256637"/>
         <geom name="finger51_link" type="mesh" mesh="finger51_link" rgba="0.9 0.9 0.9 1"/>
         <inertial pos="2.41601579473172E-06 -0.00181484079250304 0.013139258005117" mass="0.00345036527036827" fullinertia="2.37942641790154E-07 2.69109132278489E-07 1.35190326045818E-07 -5.32043409424851E-12 -8.79535456047855E-11 -7.2412901851165E-09"/>
 
@@ -311,20 +311,20 @@
   ======================================================== -->
   <actuator>
     <!-- 大拇指: 2 个主动 DOF -->
-    <position name="act_finger11" joint="finger11" kp="50" kv="2.0" ctrlrange="0 1.588"/>
-    <position name="act_finger12" joint="finger12" kp="50" kv="2.0" ctrlrange="0 1.030"/>
+    <position name="act_finger11" joint="finger11" kp="50" kv="2.0" ctrlrange="0 1.527163"/>
+    <position name="act_finger12" joint="finger12" kp="50" kv="2.0" ctrlrange="0 1.134464"/>
 
     <!-- 食指: 1 个主动 DOF (PIP 由 equality 驱动) -->
-    <position name="act_finger21" joint="finger21" kp="50" kv="2.0" ctrlrange="0 1.257"/>
+    <position name="act_finger21" joint="finger21" kp="50" kv="2.0" ctrlrange="0 1.256637"/>
 
     <!-- 中指: 1 个主动 DOF -->
-    <position name="act_finger31" joint="finger31" kp="50" kv="2.0" ctrlrange="0 1.257"/>
+    <position name="act_finger31" joint="finger31" kp="50" kv="2.0" ctrlrange="0 1.256637"/>
 
     <!-- 无名指: 1 个主动 DOF -->
-    <position name="act_finger41" joint="finger41" kp="50" kv="2.0" ctrlrange="0 1.257"/>
+    <position name="act_finger41" joint="finger41" kp="50" kv="2.0" ctrlrange="0 1.256637"/>
 
     <!-- 小拇指: 1 个主动 DOF -->
-    <position name="act_finger51" joint="finger51" kp="50" kv="2.0" ctrlrange="0 1.291"/>
+    <position name="act_finger51" joint="finger51" kp="50" kv="2.0" ctrlrange="0 1.256637"/>
   </actuator>
 
 </mujoco>

@@ -69,7 +69,7 @@
     <parent link="base_link"/>
     <child link="finger11_link"/>
     <axis xyz="0 0 1"/>
-    <limit lower="0" upper="1.588" effort="0" velocity="0"/>
+    <limit lower="0" upper="1.527163" effort="0" velocity="0"/>
   </joint>
   <link name="finger12_link">
     <inertial>
@@ -98,7 +98,7 @@
     <parent link="finger11_link"/>
     <child link="finger12_link"/>
     <axis xyz="-1 0 0"/>
-    <limit lower="0" upper="1.030" effort="0" velocity="0"/>
+    <limit lower="0" upper="1.134464" effort="0" velocity="0"/>
   </joint>
   <link name="finger13_link">
     <inertial>
@@ -128,7 +128,7 @@
     <child link="finger13_link"/>
     <axis xyz="-1 0 0"/>
     <limit lower="0" upper="1.13" effort="0" velocity="0"/>
-    <mimic joint="finger12" multiplier="0.88178789" offset="-0.00697725445"/>
+    <mimic joint="finger12" multiplier="0.8626" offset="-0.003015929"/>
   </joint>
   <link name="finger14_link">
     <inertial>
@@ -185,7 +185,7 @@
     <parent link="base_link"/>
     <child link="finger21_link"/>
     <axis xyz="-1 0 0"/>
-    <limit lower="0" upper="1.257" effort="0" velocity="0"/>
+    <limit lower="0" upper="1.256637" effort="0" velocity="0"/>
   </joint>
   <link name="finger22_link">
     <inertial>
@@ -215,7 +215,7 @@
     <child link="finger22_link"/>
     <axis xyz="-1 0 0"/>
     <limit lower="0" upper="1.75" effort="0" velocity="0"/>
-    <mimic joint="finger21" multiplier="1.36723967" offset="-0.0628270617"/>
+    <mimic joint="finger21" multiplier="1.4238" offset="-0.064994316"/>
   </joint>
   <link name="finger23_link">
     <inertial>
@@ -272,7 +272,7 @@
     <parent link="base_link"/>
     <child link="finger31_link"/>
     <axis xyz="-1 0 0"/>
-    <limit lower="0" upper="1.257" effort="0" velocity="0"/>
+    <limit lower="0" upper="1.256637" effort="0" velocity="0"/>
   </joint>
   <link name="finger32_link">
     <inertial>
@@ -302,7 +302,7 @@
     <child link="finger32_link"/>
     <axis xyz="-1 0 0"/>
     <limit lower="0" upper="1.75" effort="0" velocity="0"/>
-    <mimic joint="finger31" multiplier="1.39585814" offset="-0.0787255295"/>
+    <mimic joint="finger31" multiplier="1.451" offset="-0.075338882"/>
   </joint>
   <link name="finger33_link">
     <inertial>
@@ -359,7 +359,7 @@
     <parent link="base_link"/>
     <child link="finger41_link"/>
     <axis xyz="-1 0 0"/>
-    <limit lower="0" upper="1.257" effort="0" velocity="0"/>
+    <limit lower="0" upper="1.256637" effort="0" velocity="0"/>
   </joint>
   <link name="finger42_link">
     <inertial>
@@ -389,7 +389,7 @@
     <child link="finger42_link"/>
     <axis xyz="-1 0 0"/>
     <limit lower="0" upper="1.75" effort="0" velocity="0"/>
-    <mimic joint="finger41" multiplier="1.40106471" offset="-0.0760281065"/>
+    <mimic joint="finger41" multiplier="1.4752" offset="-0.080705770"/>
   </joint>
   <link name="finger43_link">
     <inertial>
@@ -446,7 +446,7 @@
     <parent link="base_link"/>
     <child link="finger51_link"/>
     <axis xyz="-1 0 0"/>
-    <limit lower="0" upper="1.291" effort="0" velocity="0"/>
+    <limit lower="0" upper="1.256637" effort="0" velocity="0"/>
   </joint>
   <link name="finger52_link">
     <inertial>
@@ -476,7 +476,7 @@
     <child link="finger52_link"/>
     <axis xyz="-1 0 0"/>
     <limit lower="0" upper="1.75" effort="0" velocity="0"/>
-    <mimic joint="finger51" multiplier="1.28966594" offset="-0.0841491377"/>
+    <mimic joint="finger51" multiplier="1.3517" offset="-0.085489717"/>
   </joint>
   <link name="finger53_link">
     <inertial>
